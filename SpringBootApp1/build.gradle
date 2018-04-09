@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.12.BUILD-SNAPSHOT'
+    }
+
+    repositories {
+        maven { url "http://platform-acceleration-lab-maven.s3.amazonaws.com" }
+        jcenter()
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+
+    dependencies {
+        classpath "io.pivotal.pal.assignments:assignments-plugin:1.2.6"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: "io.pivotal.pal.assignments.plugin"
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.pal'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+assignments {
+    apiUrl = "https://hello.pal.pivotal.io"
+    emails = ["satyabrata_majumder@bcbsil.com",
+              "nmedhin@pivotal.io"
+    ]
+    cohortIdentifier = 349802167
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+defaultTasks "tasks"
