@@ -28,8 +28,7 @@ sourceCompatibility = 1.8
 
 assignments {
     apiUrl = "https://hello.pal.pivotal.io"
-    emails = ["satyabrata_majumder@bcbsil.com",
-              "nmedhin@pivotal.io"
+    emails = ["satyabrata_majumder@bcbsil.com"
     ]
     cohortIdentifier = 349802167
 }
